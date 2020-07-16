@@ -1,12 +1,12 @@
-const WeebServices = require('./index.js')
+const WeebWrapper = require('./index.js')
 
-const token = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJIMWZGNWZNd2IiLCJ0b2tlbklkIjoiQnlZNXFHelBaIiwiaWF0IjoxNTAxODYyNTQ0fQ.ZXbDaHCLZ1mwJvVmqjS0QE6Ati51xFgiiz7JmjwPJMDTZhWwHS7t2BZ_uFNp8eYLGo9-UUF6dUdJSOI1wie6irunXGpkfHO6tukcYyR0_Ec3KloDGBlQnRvTqdI1fq4N49UiPaXX0aO-g_0L_sihnYlpKzjmfxSxLuaUVxI5F6zF8_dfw5kuWX_iQwnuXZ6kdcPQcXOKX279iDAKtrYLO42laLX_adj1BCjAaW1gEiGVzzNFbYpDMUUaQYeojXqEPytGLH69GhGeAoASTqp3WPrd8L07PixWaKfst5-rP5xdjdUX6-MRRj3dc0SoQ0iaiN0CTQgVLAL3YGDdehh2dQ'
+const token = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQVHJlUEFzTlQiLCJ0b2tlbklkIjoicE5vS3lDNTF0IiwiaWF0IjoxNTk0ODc1MzQ5fQ.DwrEnnNb5rThEM6iCJ2ceOEcsg0LNp_KEl4XT61iQTsk1z87SKekTYnGwTNuTLElLatBqROAMkVM-NmJL8DW0DIAvI4tL9OZgBEusgzm79CEBlibf87NFMVd_bJRDUG2SeV6IwYvztB8imB_ED6h2k44GNJClcQnyG-ovIrqg5EZoXIUYnIcLj7hnERahVsMWrI5QASR6Yj673J2j7CaLdAHSXtvsp6YHtRHqFstzx9SA1auhZvvkIxt3IM2lPhQq-37C0r9SaDvVCwr60fTiitichFVCiXl7kc_1z81dwvy5qlP8WwZSOSQC9AYoBUlJbZSrucar7R1597Pyigqdw'
 
-const weebservices = new WeebServices(null, WeebServices.APIS.STAGING)
+const wrapper = new WeebWrapper(null)
 
-weebservices.Accounts.validate(token).then(res => {
+wrapper.accounts.validate(token).then(res => {
   console.log(res)
 })
   .catch(e => {
-    console.log(e)
+    console.error(e)
   })
