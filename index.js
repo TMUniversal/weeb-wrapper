@@ -2,7 +2,7 @@
 
 const Iroh = require('./lib/iroh/')
 const Toph = require('./lib/toph')
-const Tama = require('./lib/toph')
+const Tama = require('./lib/tama')
 
 const apis = {
   PRODUCTION: 'https://api.tmuniversal.eu'

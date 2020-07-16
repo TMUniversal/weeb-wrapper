@@ -4,7 +4,7 @@
   "description": "API wrapper for weeb-services",
   "main": "index.js",
   "scripts": {
-    "test": "npm run lint",
+    "test": "npm run lint && node test/test.js",
     "lint": "eslint --ext .js --ignore-path .gitignore .",
     "lint:fix": "eslint --ext .js --ignore-path .gitignore . --fix"
   },
