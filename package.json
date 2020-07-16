@@ -1,8 +1,9 @@
 {
   "name": "@tmuniversal/weeb-wrapper",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "API wrapper for weeb-services",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "npm run lint && node test/test.js",
     "lint": "eslint --ext .js --ignore-path .gitignore .",
