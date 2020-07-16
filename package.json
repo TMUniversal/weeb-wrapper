@@ -1,6 +1,6 @@
 {
   "name": "@tmuniversal/weeb-wrapper",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "API wrapper for weeb-services",
   "main": "index.js",
   "scripts": {
