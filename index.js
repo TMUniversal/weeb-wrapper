@@ -1,3 +1,4 @@
+/// <reference path="index.d.ts" />
 'use strict'
 
 const Iroh = require('./lib/iroh/')
@@ -8,7 +9,14 @@ const apis = {
   PRODUCTION: 'https://api.tmuniversal.eu'
 }
 
+/**
+ * A simple API wrapper for the weeb api
+ */
 class WeebWrapper {
+  /**
+   * @param {string} token Your API key
+   * @param {string} apiUrl optional custom api url
+   */
   constructor (token, apiUrl) {
     apiUrl = apiUrl || {}
 
