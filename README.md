@@ -2,15 +2,21 @@
 
 <div>
 	<p align="center">
-		<a href="https://github.com/TMUniversal/weeb-wrapper/blob/stable/package.json#L3">
-			<img src="https://img.shields.io/github/package-json/v/TMUniversal/weeb-wrapper?style=flat&color=c4c4c4" />
+		<a href="https://github.com/TMUniversal/weeb-wrapper/blob/master/package.json#L3">
+			<img src="https://img.shields.io/github/package-json/v/TMUniversal/weeb-wrapper?style=flat" />
+		</a>
+		<a href="https://github.com/TMUniversal/weeb-wrapper/actions">
+			<img src="https://github.com/TMUniversal/weeb-wrapper/workflows/Test/badge.svg" />
 		</a>
 		<a href="https://tmuniversal.eu/redirect/patreon">
 			<img src="https://img.shields.io/badge/Patreon-support_me-fa6956.svg?style=flat&logo=patreon" />
 		</a>
+		<a href="https://www.npmjs.com/package/@tmuniversal/weeb-wrapper">
+			<img src="https://img.shields.io/npm/dt/@tmuniversal/weeb-wrapper" />
+		</a>
 		<br />
-		<a href="https://github.com/TMUniversal/weeb-wrapper/actions">
-			<img src="https://github.com/TMUniversal/weeb-wrapper/workflows/Test/badge.svg" />
+		<a href="https://www.npmjs.com/package/@tmuniversal/weeb-wrapper">
+			<img src="https://img.shields.io/bundlephobia/min/@tmuniversal/weeb-wrapper?label=packge%20size" />
 		</a>
 		<a href="https://github.com/TMUniversal/weeb-wrapper/issues">
 			<img src="https://img.shields.io/github/issues/TMUniversal/weeb-wrapper.svg?style=flat">
