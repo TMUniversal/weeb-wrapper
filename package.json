@@ -1,10 +1,12 @@
 {
-  "name": "@weeb_services/weeb-services",
+  "name": "@tmuniversal/weeb-wrapper",
   "version": "0.0.1",
   "description": "API wrapper for weeb-services",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run lint",
+    "lint": "eslint --ext .js --ignore-path .gitignore .",
+    "lint:fix": "eslint --ext .js --ignore-path .gitignore . --fix"
   },
   "keywords": [
     "weeb-api",
@@ -13,14 +15,24 @@
   ],
   "author": "Akio <akio@weeb.sh>",
   "contributors": [
-    "Wolke <wolke@weeb.sh>"
+    "Wolke <wolke@weeb.sh>",
+    "TMUniversal <me@tmuniversal.eu>"
   ],
-  "repository": "https://github.com/weeb-services/weeb-services.git",
+  "repository": "https://github.com/TMUniversal/weeb-wrapper.git",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TMUniversal/weeb-wrapper/issues"
+  },
+  "homepage": "https://github.com/TMUniversal/weeb-wrapper#readme",
   "dependencies": {
-    "axios": "^0.16.2"
+    "axios": "^0.19.2"
   },
   "devDependencies": {
-    "eslint": "^4.4.0"
+    "eslint": "^7.4.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
   }
 }
