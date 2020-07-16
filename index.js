@@ -1,4 +1,4 @@
-/// <reference path="index.d.ts" />
+/// <reference path="typings/index.d.ts" />
 'use strict'
 
 const Iroh = require('./lib/iroh/')
