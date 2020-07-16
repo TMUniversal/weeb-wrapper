@@ -47,6 +47,9 @@ const WeebWrapper = require('@tmuniversal/weeb-wrapper')
 
 const wrapper = new WeebWrapper('<Your API key>') // Create a new instance of the API wrapper
 
+// If you need to change the base url of the api:
+const wrapper = new WeebWrapper('<You API key>', 'https://api.example.com')
+
 wrapper.accounts // accessing the accounts api
   .validate('<Your API key>') // Doing something with it, in this case validating your API key
   .then(...) // Returns a promise, so you can work with the results
