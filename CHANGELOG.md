@@ -1,3 +1,12 @@
+## Version 0.1.3
+### Additions
+- Created this CHANGELOG
+## Fixes
+- Fixed settings api error handling for failing requests.
+- Fixed settings api typings that I broke earlier.
+
+---
+
 ## Version 0.1.2
 ### Changes
 - Updated README.
