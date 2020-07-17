@@ -15,7 +15,7 @@
 			<img src="https://img.shields.io/npm/dt/@tmuniversal/weeb-wrapper" />
 		</a>
 		<br />
-		<a href="https://www.npmjs.com/package/@tmuniversal/weeb-wrapper">
+		<a href="https://bundlephobia.com/result?p=@tmuniversal/weeb-wrapper">
 			<img src="https://img.shields.io/bundlephobia/min/@tmuniversal/weeb-wrapper?label=packge%20size" />
 		</a>
 		<a href="https://github.com/TMUniversal/weeb-wrapper/issues">
@@ -30,15 +30,16 @@
 	</p>
 </div>
 
-[Weeb Wrapper] is a simple API wrapper for the weeb api. This is a closed API, details on weeb.sh and docs.weeb.sh.
+[Weeb Wrapper] is a simple API wrapper for the weeb api, an api that helps discord bot's and their developers. This is a closed API, details on [weeb.sh](https://weeb.sh) and [docs.weeb.sh](https://docs.weeb.sh).
 
-I am hosting my own instance of this API, which is the default URL in this package. If you want to host your own version, have a look at [weeb-services]
+If you want to host your own instance of this api, have a look at [weeb-services].
 
 ## Getting Started
 
 ### Installation
 
-`npm install --save @tmuniversal/weeb-wrapper`
+For npm: `npm install --save @tmuniversal/weeb-wrapper`
+For yarn: `yarn add @tmuniversal/weeb-wrapper`
 
 ### Usage
 
@@ -67,7 +68,7 @@ Saving settings of a discord bot: in this example we are creating a _setting_ of
 ```js
 const WeebWrapper = require('@tmuniversal/weeb-wrapper')
 
-const wrapper = new WeebWrapper('<Your API key>') // Create a new instance of the API wrapper
+const wrapper = new WeebWrapper('<Your API key>', 'https://api.example.com') // Create a new instance of the API wrapper
 
 wrapper.settings.createSetting('guilds', '<some id>', {
   prefix: '?'
@@ -77,8 +78,15 @@ wrapper.settings.createSetting('guilds', '<some id>', {
 It's easy to retrieve the setting:
 
 ```js
+// With async/await
 const result = await wrapper.settings.getSetting('guilds', '<some id>')
 console.log(result) // Will return the settings: { prefix: '?' }
+
+// With promises
+wrapper.settings.getSetting('guilds', '<some id>')
+  .then(result => {
+    console.log(result) // Will return the settings: { prefix: '?' }
+  })
 ```
 
 ## License
