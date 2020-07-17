@@ -38,8 +38,9 @@ If you want to host your own instance of this api, have a look at [weeb-services
 
 ### Installation
 
-For npm: `npm install --save @tmuniversal/weeb-wrapper`
-For yarn: `yarn add @tmuniversal/weeb-wrapper`
+With npm: `npm install --save @tmuniversal/weeb-wrapper`
+
+With yarn: `yarn add @tmuniversal/weeb-wrapper`
 
 ### Usage
 
