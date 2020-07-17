@@ -1,12 +1,12 @@
 const WeebWrapper = require('../index.js')
 
-const token = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQVHJlUEFzTlQiLCJ0b2tlbklkIjoicE5vS3lDNTF0IiwiaWF0IjoxNTk0ODc1MzQ5fQ.DwrEnnNb5rThEM6iCJ2ceOEcsg0LNp_KEl4XT61iQTsk1z87SKekTYnGwTNuTLElLatBqROAMkVM-NmJL8DW0DIAvI4tL9OZgBEusgzm79CEBlibf87NFMVd_bJRDUG2SeV6IwYvztB8imB_ED6h2k44GNJClcQnyG-ovIrqg5EZoXIUYnIcLj7hnERahVsMWrI5QASR6Yj673J2j7CaLdAHSXtvsp6YHtRHqFstzx9SA1auhZvvkIxt3IM2lPhQq-37C0r9SaDvVCwr60fTiitichFVCiXl7kc_1z81dwvy5qlP8WwZSOSQC9AYoBUlJbZSrucar7R1597Pyigqdw'
+const token = 'UFRyZVBBc05UOjU2ZTljZjU0ZWQ4MjJhZWRiNmYyMWZiMWU3YzY0NzM1ZTk3NDFlNjhiNTcxODhlOWYxOWU2ZDc4'
 
-const wrapper = new WeebWrapper(null)
+const wrapper = new WeebWrapper(null, 'https://api.tmuniversal.eu')
 
-wrapper.accounts.validate(token).then(res => {
-  if (res.account?.name === 'Test') return console.log('Test successful.')
+wrapper.accounts.validate(token).catch(res => {
+  if (res.status === 401) {
+    console.log('Test successful.')
+    return process.exit(0)
+  }
 })
-  .catch(e => {
-    console.error(e)
-  })
