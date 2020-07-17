@@ -5,8 +5,6 @@
 - Fixed settings api error handling for failing requests.
 - Fixed settings api typings that I broke earlier.
 
----
-
 ## Version 0.1.2
 ### Changes
 - Updated README.
@@ -15,8 +13,6 @@
 - Request handler can now use put method.
 ### Fixes
 - JSDoc for settings api now has String types capitalized.
-
----
 
 ## Version 0.1.1
 ### Changes
@@ -30,8 +26,6 @@
 ### Fixes
 - Package size shield now links to bundlephobia.
 
----
-
 ## Version 0.1.0
 ### Changes
 - Data from settings api is now correctly handled and filtered.
@@ -42,8 +36,6 @@
 ### Fixes
 - Fixed API key handling error.
 - API Endpoints.
-
----
 
 ## Version 0.0.1
 ### Additions
