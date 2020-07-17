@@ -48,11 +48,11 @@ declare module '@tmuniversal/weeb-wrapper' {
     public async createSetting(type: string, id: string, data: Data): Promise<SettingResponse | APIResponseData>
     public async updateSetting(type: string, id: string, data: Data): Promise<SettingResponse | APIResponseData>
     public async deleteSetting(type: string, id: string): Promise<SettingResponse | APIResponseData>
-    public async getSubsettings(type: string, id: string, subtype: string): Promise<SettingResponse | APIResponseData>
-    public async getSubsetting(type: string, id: string, subtype: string, subid: string): Promise<SettingResponse | APIResponseData>
-    public async createSubsetting(type: string, id: string, subtype: string, subid: string, data: Data): Promise<SettingResponse | APIResponseData>
-    public async updateSubsetting(type: string, id: string, subtype: string, subid: string, data: Data): Promise<SettingResponse | APIResponseData>
-    public async deleteSubsetting(type: string, id: string, subtype: string, subid: string): Promise<SettingResponse | APIResponseData>
+    public async getSubsettings(type: string, id: string, subtype: string): Promise<SubsettingsResponse | APIResponseData>
+    public async getSubsetting(type: string, id: string, subtype: string, subid: string): Promise<SubsettingResponse | APIResponseData>
+    public async createSubsetting(type: string, id: string, subtype: string, subid: string, data: Data): Promise<SubsettingResponse | APIResponseData>
+    public async updateSubsetting(type: string, id: string, subtype: string, subid: string, data: Data): Promise<SubsettingResponse | APIResponseData>
+    public async deleteSubsetting(type: string, id: string, subtype: string, subid: string): Promise<SubsettingResponse | APIResponseData>
   }
 
   class Toph {
