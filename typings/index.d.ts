@@ -33,24 +33,26 @@ declare module '@tmuniversal/weeb-wrapper' {
     public validate(token: APIKey): ValidatedKey | APIResponse
     public createToken(userId: string): CreateTokenResponse
     public deleteToken(tokenId: string): IrohResponse
-    public createUser(name: string, discordUserId: string, active: boolean, scopes: Array<string>): IrohResponse
+    public getUsers(): ListAllUsersResponse
+    public getUser(userId: string): IrohResponse
+    public createUser(name: string, discordUserId: string, active?: boolean, scopes?: Array<string>): IrohResponse
     public deleteUser(userId: string): APIResponse
-    public updateUser(userId: string, { name, discordUserId, active, scopes }: { name: string, discordUserId: string, active: boolean, scopes: Array<string> }): IrohResponse
+    public updateUser(userId: string, options: { name: string, discordUserId: string, active: boolean, scopes: Array<string> }): IrohResponse
   }
 
   class Tama {
     constructor(baseUrl: APIUrl, token: APIKey)
     private req: RequestHandler
 
-    public async getSetting(type: string, id: string): Promise<SettingResponse>
-    public async createSetting(type: string, id: string, data: Data): Promise<SettingResponse>
-    public async updateSetting(type: string, id: string, data: Data): Promise<SettingResponse>
-    public async deleteSetting(type: string, id: string): Promise<SettingResponse>
-    public async getSubsettings(type: string, id: string, subtype: string): Promise<SubsettingsResponse>
-    public async getSubsetting(type: string, id: string, subtype: string, subid: string): Promise<SubsettingResponse>
-    public async createSubsetting(type: string, id: string, subtype: string, subid: string, data: Data): Promise<SubsettingResponse>
-    public async updateSubsetting(type: string, id: string, subtype: string, subid: string, data: Data): Promise<SubsettingResponse>
-    public async deleteSubsetting(type: string, id: string, subtype: string, subid: string): Promise<SubsettingResponse>
+    public async getSetting(type: string, id: string): Promise<SettingResponse | APIResponseData> 
+    public async createSetting(type: string, id: string, data: Data): Promise<SettingResponse | APIResponseData>
+    public async updateSetting(type: string, id: string, data: Data): Promise<SettingResponse | APIResponseData>
+    public async deleteSetting(type: string, id: string): Promise<SettingResponse | APIResponseData>
+    public async getSubsettings(type: string, id: string, subtype: string): Promise<SettingResponse | APIResponseData>
+    public async getSubsetting(type: string, id: string, subtype: string, subid: string): Promise<SettingResponse | APIResponseData>
+    public async createSubsetting(type: string, id: string, subtype: string, subid: string, data: Data): Promise<SettingResponse | APIResponseData>
+    public async updateSubsetting(type: string, id: string, subtype: string, subid: string, data: Data): Promise<SettingResponse | APIResponseData>
+    public async deleteSubsetting(type: string, id: string, subtype: string, subid: string): Promise<SettingResponse | APIResponseData>
   }
 
   class Toph {
@@ -106,6 +108,10 @@ declare module '@tmuniversal/weeb-wrapper' {
 
   interface IrohResponse extends APIResponse {
     account: IrohAccount
+  }
+
+  interface ListAllUsersResponse extends APIResponse {
+    accounts: Array<IrohAccount>
   }
 
   interface ValidatedKey extends IrohResponse {
