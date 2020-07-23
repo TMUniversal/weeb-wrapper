@@ -10,7 +10,8 @@
     "lint": "eslint --ext .js,.ts --ignore-path .gitignore src/",
     "lint:fix": "eslint --ext .js,.ts --ignore-path .gitignore src/ --fix",
     "clean": "rimraf dist",
-    "prepublishOnly": "npm run build && npm test"
+    "prepublishOnly": "npm run build && npm test",
+    "postversion": "git push && git push --tags"
   },
   "keywords": [
     "weeb-api",
