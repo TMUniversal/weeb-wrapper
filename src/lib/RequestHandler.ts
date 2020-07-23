@@ -1,28 +1,33 @@
 'use strict'
 
-const axios = require('axios')
-const uagent = `weeb-wrapper@${require('../package.json').version} (NodeJS)`
+import axios from 'axios'
+import * as util from 'util'
+import * as CommonTypes from './CommonTypes'
+
+const uagent = `weeb-wrapper@${require('../../package.json').version} (NodeJS)`
 
 class RequestHandler {
-  constructor (baseUrl, token) {
+  public baseUrl: CommonTypes.APIUrl
+  private token: CommonTypes.APIKey
+  constructor (baseUrl: CommonTypes.APIUrl, token: CommonTypes.APIKey) {
     this.baseUrl = baseUrl
     this.token = token
   }
 
-  headers () {
-    const headers = { 'User-Agent': uagent }
+  headers (): RequestHeaders {
+    const headers: RequestHeaders = { 'User-Agent': uagent }
     if (this.token) headers.Authorization = `${this.isJWT(this.token) ? 'Bearer' : 'Wolke'} ${this.token}`
     return headers
   }
 
-  get (path) {
+  get (path: string): Promise<CommonTypes.APIResponse> {
     return new Promise((resolve, reject) => {
       axios({
         url: `${this.baseUrl}${path}`,
         method: 'get',
         headers: this.headers()
       })
-        .then(res => resolve(res.data))
+        .then(res => resolve(res.data as CommonTypes.APIResponse))
         .catch(e => {
           if (e.response && e.response.data) return reject(e.response.data)
           else {
@@ -34,7 +39,7 @@ class RequestHandler {
     })
   }
 
-  post (path, data) {
+  post (path: string, data: Object): Promise<CommonTypes.APIResponse> {
     return axios({
       url: `${this.baseUrl}${path}`,
       method: 'post',
@@ -43,7 +48,7 @@ class RequestHandler {
     })
   }
 
-  put (path, data) {
+  put (path: string, data: Object): Promise<CommonTypes.APIResponse> {
     return axios({
       url: `${this.baseUrl}${path}`,
       method: 'put',
@@ -52,7 +57,7 @@ class RequestHandler {
     })
   }
 
-  delete (path) {
+  delete (path: string): Promise<CommonTypes.APIResponse> {
     return axios({
       url: `${this.baseUrl}${path}`,
       method: 'delete',
@@ -60,9 +65,14 @@ class RequestHandler {
     })
   }
 
-  isJWT (token) {
+  isJWT (token: CommonTypes.APIKey): Boolean {
     return /^([a-zA-Z0-9\-_]+?)\.([a-zA-Z0-9\-_]+?)\.([a-zA-Z0-9\-_]+)?$/m.test(token)
   }
 }
 
-module.exports = RequestHandler
+export default RequestHandler
+
+interface RequestHeaders {
+  'User-Agent': string,
+  Authorization?: string
+}

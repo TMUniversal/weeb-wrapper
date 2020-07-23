@@ -1,29 +1,35 @@
-/// <reference path="typings/index.d.ts" />
+/// <reference path="../typings/index.d.ts" />
 'use strict'
 
-const Iroh = require('./lib/iroh/')
-const Toph = require('./lib/toph')
-const Tama = require('./lib/tama')
+import Iroh from './lib/iroh/index'
+import Toph from './lib/toph/index'
+import Tama from './lib/tama/index'
+import * as CommonTypes from './lib/CommonTypes'
 
 const apis = {
-  PRODUCTION: 'https://api.weeb.sh',
-  STAGING: 'https://staging.weeb.sh'
+  PRODUCTION: 'https://api.tmuniversal.eu'
+  // PRODUCTION: 'https://api.weeb.sh',
+  // STAGING: 'https://staging.weeb.sh'
 }
 
 /**
  * A simple API wrapper for the weeb api
  */
 class WeebWrapper {
+  public accounts: Iroh
+  public images: Toph
+  public settings: Tama
+  public static APIS: IAPIS
   /**
    * @param {string} token Your API key
    * @param {string} apiUrl optional custom api url
    */
-  constructor (token, apiUrl) {
+  constructor (token: CommonTypes.APIKey, apiUrl: CommonTypes.APIUrl | APIUrlOptions) {
     apiUrl = apiUrl || {}
 
-    let accountsUrl
-    let imagesUrl
-    let settingsUrl
+    let accountsUrl: CommonTypes.APIUrl
+    let imagesUrl: CommonTypes.APIUrl
+    let settingsUrl: CommonTypes.APIUrl
     if (typeof apiUrl === 'string') {
       accountsUrl = `${apiUrl}/accounts`
       imagesUrl = `${apiUrl}/images`
@@ -43,3 +49,13 @@ class WeebWrapper {
 WeebWrapper.APIS = apis
 
 module.exports = WeebWrapper
+
+interface APIUrlOptions {
+  accounts?: CommonTypes.APIUrl,
+  images?: CommonTypes.APIUrl,
+  settings?: CommonTypes.APIUrl
+}
+
+interface IAPIS {
+  [NAME: string]: CommonTypes.APIUrl
+}

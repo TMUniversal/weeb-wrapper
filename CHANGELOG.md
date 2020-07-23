@@ -1,3 +1,13 @@
+## Version 0.1.4
+### Additions
+- TypeScript compiler configuration
+### Fixes
+- Some types were incorrect or hard to read
+
+### Changes
+- Switched to TypeScript
+- Re-reverted default api url. it made no sense since my api version uses pluralized endpoints.
+
 ## Version 0.1.3
 ### Additions
 - Created this CHANGELOG
@@ -10,6 +20,7 @@
 - Updated README.
 ### Additions
 - Account API Iroh is now handled properly.
+- JSDoc for account api
 - Request handler can now use put method.
 ### Fixes
 - JSDoc for settings api now has String types capitalized.
