@@ -1,6 +1,7 @@
-## Version 0.1.4
+## Version 0.2.0
 ### Additions
 - TypeScript compiler configuration
+  
 ### Fixes
 - Some types were incorrect or hard to read
 
