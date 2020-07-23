@@ -6,7 +6,7 @@
 			<img src="https://img.shields.io/github/package-json/v/TMUniversal/weeb-wrapper?style=flat" />
 		</a>
 		<a href="https://github.com/TMUniversal/weeb-wrapper/actions">
-			<img src="https://github.com/TMUniversal/weeb-wrapper/workflows/Test/badge.svg" />
+			<img src="https://github.com/TMUniversal/weeb-wrapper/workflows/Build/badge.svg" />
 		</a>
 		<a href="https://tmuniversal.eu/redirect/patreon">
 			<img src="https://img.shields.io/badge/Patreon-support_me-fa6956.svg?style=flat&logo=patreon" />
