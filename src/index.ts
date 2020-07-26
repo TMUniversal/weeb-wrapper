@@ -29,7 +29,7 @@ class WeebWrapper {
    * @param {string} token Your API key
    * @param {string} apiUrl optional custom api url
    */
-  constructor (token: CommonTypes.APIKey, apiUrl: CommonTypes.APIUrl | APIUrlOptions) {
+  constructor (token: CommonTypes.APIKey, apiUrl?: CommonTypes.APIUrl | APIUrlOptions) {
     apiUrl = apiUrl || {}
 
     let accountsUrl: CommonTypes.APIUrl

@@ -1,3 +1,10 @@
+## Version 0.3.2
+### Changes
+* Marked API url parameter as optional.
+
+### Fixes
+* Documentation
+
 ## Version 0.3.1
 ### Additions
 * Add support for BotStat API.

@@ -19,7 +19,7 @@ declare module "@tmuniversal/weeb-wrapper" {
      * @param {string} token Your API key
      * @param {string} apiUrl optional custom api url
      */
-    constructor(token: APIKey, apiUrl: APIUrl | APIUrlOptions);
+    constructor(token: APIKey, apiUrl?: APIUrl | APIUrlOptions);
   }
 
   class RequestHandler {

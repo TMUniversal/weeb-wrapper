@@ -106,7 +106,7 @@ class BotStat implements IApiHandler {
   /**
    * Increase the uses of a command
    * @param {String} botId Discord ID of the bot
-   * @param {String} command command to get stats for
+   * @param {String} command command to update
    * @returns {Promise<Object>}
    */
   public async increaseCommandUsage (botId: string, command: string): Promise<Command> {
@@ -121,7 +121,7 @@ class BotStat implements IApiHandler {
   /**
    * Increase the uses of a command (synonymous with *increaseCommandUsage*)
    * @param {String} botId Discord ID of the bot
-   * @param {String} command command to get stats for
+   * @param {String} command command to update
    * @returns {Promise<Object>}
    */
   public async updateCommand (botId: string, command: string): Promise<Command> {
