@@ -11,6 +11,8 @@ declare module "@tmuniversal/weeb-wrapper" {
     public readonly accounts: Iroh;
     public readonly images: Toph;
     public readonly settings: Tama;
+    public readonly statistics: BotStat;
+    public readonly general: TMGeneral;
     public static APIS: IAPIS;
 
     /**
@@ -21,7 +23,7 @@ declare module "@tmuniversal/weeb-wrapper" {
   }
 
   class RequestHandler {
-    constructor(baseUrl: APIUrl, token: APIKey);
+    constructor(baseUrl: APIUrl, token: APIKey | false);
     public baseUrl: APIUrl;
     private token: APIKey;
 
@@ -173,6 +175,33 @@ declare module "@tmuniversal/weeb-wrapper" {
   class Toph implements IApiHandler {
     req: RequestHandler;
     constructor(baseUrl: APIUrl, token: APIKey);
+  }
+
+  class BotStat implements IApiHandler {
+    req: RequestHandler;
+    constructor(baseUrl: APIUrl, token: APIKey)
+  }
+
+  class TMGeneral implements IApiHandler {
+    req: RequestHandler;
+    constructor(baseUrl: APIUrl)
+    /**
+     * Get your IP address
+     * @returns {Promise<String>} your ip address
+     */
+    public getIp(): Promise<string>
+    /**
+     * Get a catgirl
+     * @return {Promise<String>} a url that directly links to an image of a catgirl
+     */
+    public getNeko(): Promise<string>
+    /**
+     * Get any text transformed into mocking SpongeBob's speech style
+     * @param input Your text
+     * @param useApi Wether to actually use the api or to calculate locally
+     * @returns {Promise<String>} The result
+     */
+    public spongeBobTalk(input: string, useApi?: boolean): Promise<string>
   }
 
   //#endregion

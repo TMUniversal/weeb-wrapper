@@ -8,8 +8,8 @@ const uagent = `weeb-wrapper@${require('../../package.json').version} (NodeJS)`
 
 class RequestHandler {
   public baseUrl: CommonTypes.APIUrl
-  private token: CommonTypes.APIKey
-  constructor (baseUrl: CommonTypes.APIUrl, token: CommonTypes.APIKey) {
+  private token: CommonTypes.APIKey | false
+  constructor (baseUrl: CommonTypes.APIUrl, token: CommonTypes.APIKey | false) {
     this.baseUrl = baseUrl
     this.token = token
   }

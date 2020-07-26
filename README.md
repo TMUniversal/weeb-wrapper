@@ -64,6 +64,8 @@ wrapper.accounts // accessing the accounts api
 
 ### Using the settings API
 
+> Requires API key.
+
 Saving settings of a discord bot: in this example we are creating a _setting_ of the type `guilds` named `<some id>`. It contains the guilds command prefix.
 
 ```js
@@ -89,6 +91,29 @@ wrapper.settings.getSetting('guilds', '<some id>')
     console.log(result) // Will return the settings: { prefix: '?' }
   })
 ```
+
+Note: Subsettings are not connected to their parent settings, they perform as a full settings themselves and will work even if the parent route doesn't exist. Deleting a parent will not delete it's subsettings.
+
+### Using TM's General API
+
+> This is a very random collection of some features I wanted to realize.
+> An API key is NOT required for these features.
+
+```js
+const WeebWrapper = require('@tmuniversal/weeb-wrapper')
+
+const wrapper = new WeebWrapper('<Your API key (or not since you don\'t need one for this)>')
+
+const neko = await wrapper.general.getNeko() // Will retrieve a catgirl image url.
+
+console.log(neko)
+// => https://nekos.moe/image/rygkhkosf
+```
+
+### Upcoming
+
+* Implementation of TM's BotStat API (+ docs of course).
+* Implementation of the [Bruh API](https://bruhapi.xyz/) _(Maybe)_.
 
 ## License
 
