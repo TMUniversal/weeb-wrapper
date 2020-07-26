@@ -30,7 +30,9 @@
   },
   "homepage": "https://github.com/TMUniversal/weeb-wrapper#readme",
   "dependencies": {
-    "axios": "^0.19.2"
+    "@types/lodash": "^4.14.158",
+    "axios": "^0.19.2",
+    "lodash": "^4.17.19"
   },
   "devDependencies": {
     "@types/node": "^14.0.26",

@@ -7,7 +7,7 @@ import { isStringTooLong, escapeString, spongetalk } from './util'
 class TMGeneral implements IApiHandler {
   req: RequestHandler
   constructor (baseUrl: string) {
-    this.req = new RequestHandler(baseUrl, false)
+    this.req = new RequestHandler(baseUrl, null)
   }
 
   /**

@@ -180,6 +180,71 @@ declare module "@tmuniversal/weeb-wrapper" {
   class BotStat implements IApiHandler {
     req: RequestHandler;
     constructor(baseUrl: APIUrl, token: APIKey)
+      /**
+   * Get details of a bot.
+   * @param botId Discord ID of the bot
+   * @returns {Promise<Object>} details of the bot
+   */
+  public getBot (botId: string): Promise<Bot>;
+
+  /**
+   * Update the numbers on your bot.
+   * @param {String} botId Discord ID of the bot
+   * @param {{guilds: Number, channels: Number, users: Number}} data Amounts of guilds, channels, users in form of an object
+   * @returns {Promise<Object>} The updated command details
+   */
+  public updateBot<botId = string, data = BotPatch>(botId: string, data: BotPatch): Promise<Bot>;
+
+  /**
+   * Update the numbers on your bot.
+   * @param {String} botId Discord ID of the bot
+   * @param {Array<Number>} data Amounts of guilds, channels, users in this specific order in form of an array.
+   * @returns {Promise<Object>} The updated command details
+   */
+  public updateBot<botId = string, data = Array<Number>>(botId: string, data: Array<number>): Promise<Bot>;
+
+  /**
+   * Update the numbers on your bot.
+   * @param {String} botId Discord ID of the bot
+   * @param {Number} guilds amounts of guilds
+   * @param {Number} channels amounts of channels
+   * @param {Number} users amounts of users
+   * @returns {Promise<Object>} The updated command details
+   */
+  public updateBot<botId = string, guilds = number, channels = number, users = number>(botId: string, guilds: number, channels: number, users: number): Promise<Bot>;
+
+  // public updateBot (botId: string, p1: BotPatch | Array<number> | number, p2?: number, p3?: number): Promise<Bot>;
+
+  /**
+   * Get information on all commands of a bot
+   * @param {String} botId Discord ID of the bot
+   * @returns {Promise<Array<Object>>}
+   */
+  public getCommands (botId: string): Promise<Array<Command>>;
+
+  /**
+   * Get information on a command of a bot
+   * @param {String} botId Discord ID of the bot
+   * @param {String} command command to get stats for
+   * @returns {Promise<Object>}
+   */
+  public getCommand (botId: string, command: string): Promise<Command>;
+
+  /**
+   * Increase the uses of a command
+   * @param {String} botId Discord ID of the bot
+   * @param {String} command command to get stats for
+   * @returns {Promise<Object>}
+   */
+  public increaseCommandUsage (botId: string, command: string): Promise<Command>;
+
+  /**
+   * Increase the uses of a command (synonymous with *increaseCommandUsage*)
+   * @param {String} botId Discord ID of the bot
+   * @param {String} command command to get stats for
+   * @returns {Promise<Object>}
+   */
+  public updateCommand (botId: string, command: string): Promise<Command>;
   }
 
   class TMGeneral implements IApiHandler {
@@ -279,6 +344,32 @@ declare module "@tmuniversal/weeb-wrapper" {
   }
   interface IAPIS {
     [NAME: string]: APIUrl;
+  }
+
+  interface Command {
+    botID: string,
+    command: string,
+    uses: number,
+    lastUpdated: Date;
+  }
+  
+  interface Bot {
+    owner: {
+      id: string;
+      username: string;
+      discriminator: string;
+    };
+    userId: string;
+    guilds: number;
+    channels: number;
+    users: number;
+    lastUpdated: Date;
+  }
+
+  interface BotPatch {
+    guilds: number;
+    channels: number;
+    users: number;
   }
 
   //#endregion

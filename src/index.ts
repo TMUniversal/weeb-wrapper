@@ -9,9 +9,10 @@ import TMGeneral from './lib/tm-general'
 import * as CommonTypes from './lib/CommonTypes'
 
 const apis = {
-  PRODUCTION: 'https://api.tmuniversal.eu'
+  PRODUCTION: 'https://api.tmuniversal.eu',
   // PRODUCTION: 'https://api.weeb.sh',
   // STAGING: 'https://staging.weeb.sh'
+  BRUHAPI: 'https://bruhapi.xyz'
 }
 
 /**
