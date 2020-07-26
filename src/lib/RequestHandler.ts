@@ -8,8 +8,8 @@ const uagent = `weeb-wrapper@${require('../../package.json').version} (NodeJS)`
 
 class RequestHandler {
   public baseUrl: CommonTypes.APIUrl
-  private token: CommonTypes.APIKey | false
-  constructor (baseUrl: CommonTypes.APIUrl, token: CommonTypes.APIKey | false) {
+  private token: CommonTypes.APIKey
+  constructor (baseUrl: CommonTypes.APIUrl, token: CommonTypes.APIKey) {
     this.baseUrl = baseUrl
     this.token = token
   }
@@ -66,6 +66,7 @@ class RequestHandler {
   }
 
   isJWT (token: CommonTypes.APIKey): Boolean {
+    if (!token) return false
     return /^([a-zA-Z0-9\-_]+?)\.([a-zA-Z0-9\-_]+?)\.([a-zA-Z0-9\-_]+)?$/m.test(token)
   }
 }

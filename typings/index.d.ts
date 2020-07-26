@@ -23,7 +23,7 @@ declare module "@tmuniversal/weeb-wrapper" {
   }
 
   class RequestHandler {
-    constructor(baseUrl: APIUrl, token: APIKey | false);
+    constructor(baseUrl: APIUrl, token: APIKey);
     public baseUrl: APIUrl;
     private token: APIKey;
 
@@ -214,7 +214,7 @@ declare module "@tmuniversal/weeb-wrapper" {
   type WolkeToken = string;
 
   type APIUrl = string;
-  type APIKey = BearerToken | WolkeToken;
+  type APIKey = BearerToken | WolkeToken | null;
 
   type APIResponse = {
     status: HttpStatusCode;

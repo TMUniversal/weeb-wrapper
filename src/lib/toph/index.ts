@@ -1,10 +1,11 @@
 'use strict'
 
 import RequestHandler from '../RequestHandler'
+import { IApiHandler, APIUrl, APIKey } from '../CommonTypes'
 
-class Toph {
-  private req: RequestHandler
-  constructor (baseUrl: string, token: string) {
+class Toph implements IApiHandler {
+  req: RequestHandler
+  constructor (baseUrl: APIUrl, token: APIKey) {
     this.req = new RequestHandler(baseUrl, token)
   }
 }
