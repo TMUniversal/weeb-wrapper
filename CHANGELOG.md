@@ -6,7 +6,7 @@
 ### Version 0.3.0
 ### Additions
 * Add support for TM's General API (some random collection of features).
-* Add my [ko-fi page](https://ko*fi.com/tmuniversal) to FUNDING.yml.
+* Add my [ko-fi page](https://ko-fi.com/tmuniversal) to FUNDING.yml.
 ### Changes
 * Update README.
 * Change list-style in CHANGELOG.md (from "-" to "*")
