@@ -1,3 +1,8 @@
+## Version 0.3.1
+### Additions
+* Add support for BotStat API.
+* Documentation.
+
 ### Version 0.3.0
 ### Additions
 * Add support for TM's General API (some random collection of features).
