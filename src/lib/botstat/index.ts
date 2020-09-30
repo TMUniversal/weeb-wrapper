@@ -31,7 +31,10 @@ class BotStat implements IApiHandler {
    * @param {{guilds: Number, channels: Number, users: Number}} data Amounts of guilds, channels, users in form of an object
    * @returns {Promise<Object>} The updated command details
    */
-  public async updateBot<botId = string, data = BotPatch>(botId: string, data: BotPatch): Promise<Bot>;
+  public async updateBot<botId = string, data = BotPatch>(
+    botId: string,
+    data: BotPatch
+  ): Promise<Bot>
 
   /**
    * Update the numbers on your bot.
@@ -39,7 +42,10 @@ class BotStat implements IApiHandler {
    * @param {Array<Number>} data Amounts of guilds, channels, users in this specific order in form of an array.
    * @returns {Promise<Object>} The updated command details
    */
-  public async updateBot<botId = string, data = Array<Number>>(botId: string, data: Array<number>): Promise<Bot>;
+  public async updateBot<botId = string, data = Array<Number>>(
+    botId: string,
+    data: Array<number>
+  ): Promise<Bot>
 
   /**
    * Update the numbers on your bot.
@@ -49,20 +55,42 @@ class BotStat implements IApiHandler {
    * @param {Number} users amounts of users
    * @returns {Promise<Object>} The updated command details
    */
-  public async updateBot<botId = string, guilds = number, channels = number, users = number>(botId: string, guilds: number, channels: number, users: number): Promise<Bot>;
+  public async updateBot<
+    botId = string,
+    guilds = number,
+    channels = number,
+    users = number
+  >(
+    botId: string,
+    guilds: number,
+    channels: number,
+    users: number
+  ): Promise<Bot>
 
-  public async updateBot (botId: string, p1: BotPatch | Array<number> | number, p2?: number, p3?: number): Promise<Bot> {
+  public async updateBot (
+    botId: string,
+    p1: BotPatch | Array<number> | number,
+    p2?: number,
+    p3?: number
+  ): Promise<Bot> {
     try {
       let data: BotPatch
       // Validate and transform input data.
       if (!p1) throw new Error('Too few arguments passed, requires at least 2.')
       if (typeof p1 === 'number') {
-        if (typeof p2 !== 'number' || typeof p3 !== 'number') throw new Error('Missing correct parameters.')
+        if (typeof p2 !== 'number' || typeof p3 !== 'number') { throw new Error('Missing correct parameters.') }
         data = { guilds: p1, channels: p2, users: p3 }
       } else if (_.isArray(p1)) {
         if (_.size(p1) !== 3) throw new Error('Incorrect amount of elements.')
         data = { guilds: p1[0], channels: p1[1], users: p1[2] }
-      } else if (p1.guilds && p1.channels && p1.users && typeof p1.guilds === 'number' && typeof p1.channels === 'number' && typeof p1.users === 'number') {
+      } else if (
+        p1.guilds &&
+        p1.channels &&
+        p1.users &&
+        typeof p1.guilds === 'number' &&
+        typeof p1.channels === 'number' &&
+        typeof p1.users === 'number'
+      ) {
         data = p1
       } else throw new Error('No correct data received.')
 
@@ -109,7 +137,10 @@ class BotStat implements IApiHandler {
    * @param {String} command command to update
    * @returns {Promise<Object>}
    */
-  public async increaseCommandUsage (botId: string, command: string): Promise<Command> {
+  public async increaseCommandUsage (
+    botId: string,
+    command: string
+  ): Promise<Command> {
     try {
       const res = await this.req.post(`/cmd/${botId}/${command}`, {})
       return res.data.command
@@ -132,27 +163,27 @@ class BotStat implements IApiHandler {
 export default BotStat
 
 interface Command {
-  botID: string,
-  command: string,
-  uses: number,
-  lastUpdated: Date;
+  botID: string
+  command: string
+  uses: number
+  lastUpdated: Date
 }
 
 interface Bot {
   owner: {
-    id: string;
-    username: string;
-    discriminator: string;
-  };
-  userId: string;
-  guilds: number;
-  channels: number;
-  users: number;
-  lastUpdated: Date;
+    id: string
+    username: string
+    discriminator: string
+  }
+  userId: string
+  guilds: number
+  channels: number
+  users: number
+  lastUpdated: Date
 }
 
 interface BotPatch {
-  guilds: number;
-  channels: number;
-  users: number;
+  guilds: number
+  channels: number
+  users: number
 }

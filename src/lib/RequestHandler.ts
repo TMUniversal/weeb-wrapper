@@ -16,7 +16,11 @@ class RequestHandler {
 
   headers (): RequestHeaders {
     const headers: RequestHeaders = { 'User-Agent': uagent }
-    if (this.token) headers.Authorization = `${this.isJWT(this.token) ? 'Bearer' : 'Wolke'} ${this.token}`
+    if (this.token) {
+      headers.Authorization = `${this.isJWT(this.token) ? 'Bearer' : 'Wolke'} ${
+        this.token
+      }`
+    }
     return headers
   }
 
@@ -67,13 +71,15 @@ class RequestHandler {
 
   isJWT (token: CommonTypes.APIKey): Boolean {
     if (!token) return false
-    return /^([a-zA-Z0-9\-_]+?)\.([a-zA-Z0-9\-_]+?)\.([a-zA-Z0-9\-_]+)?$/m.test(token)
+    return /^([a-zA-Z0-9\-_]+?)\.([a-zA-Z0-9\-_]+?)\.([a-zA-Z0-9\-_]+)?$/m.test(
+      token
+    )
   }
 }
 
 export default RequestHandler
 
 interface RequestHeaders {
-  'User-Agent': string,
+  'User-Agent': string
   Authorization?: string
 }

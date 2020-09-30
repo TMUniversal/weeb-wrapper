@@ -15,6 +15,6 @@ _You do not have to be a master on the following, but at least have general know
 2. Check if your code works.
 3. Follow this repository's Code Of Conduct.
 
-[APIs]: https://en.wikipedia.org/wiki/Application_programming_interface
+[apis]: https://en.wikipedia.org/wiki/Application_programming_interface
 [javascript]: https://en.wikipedia.org/wiki/JavaScript
 [axios]: https://www.npmjs.com/package/axios

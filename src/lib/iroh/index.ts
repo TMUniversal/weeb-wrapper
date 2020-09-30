@@ -14,8 +14,12 @@ class Iroh implements CommonTypes.IApiHandler {
    * @param {String} token The token to validate
    * @returns {Promise<Object>} account details of the token's owner
    */
-  public validate (token: CommonTypes.APIKey): Promise<ValidatedKey | CommonTypes.APIResponse> {
-    return this.req.get(`/validate/${token}${!this.req.isJWT(token) ? '?wolkeToken=true' : ''}`)
+  public validate (
+    token: CommonTypes.APIKey
+  ): Promise<ValidatedKey | CommonTypes.APIResponse> {
+    return this.req.get(
+      `/validate/${token}${!this.req.isJWT(token) ? '?wolkeToken=true' : ''}`
+    )
   }
 
   /**
@@ -72,7 +76,12 @@ class Iroh implements CommonTypes.IApiHandler {
    * @param {Array<String>} scopes The new account's scopes
    * @returns {Object} The new user
    */
-  public async createUser (name: string, discordUserId: string, active: boolean = true, scopes: Array<string> = []): Promise<IrohResponse> {
+  public async createUser (
+    name: string,
+    discordUserId: string,
+    active: boolean = true,
+    scopes: Array<string> = []
+  ): Promise<IrohResponse> {
     if (active === undefined || active === null) active = true
     if (!scopes) scopes = []
 
@@ -109,7 +118,10 @@ class Iroh implements CommonTypes.IApiHandler {
    * @param {{name, discordUserId, active, scopes}} options the details to change. provide at least one.
    * @returns {Object} The updated user
    */
-  public async updateUser (userId: string, options: UpdateUserOptions = {}): Promise<IrohResponse> {
+  public async updateUser (
+    userId: string,
+    options: UpdateUserOptions = {}
+  ): Promise<IrohResponse> {
     const { name, discordUserId, active, scopes } = options
     const data: UpdateUserOptions = {}
     if (name) data.name = name
@@ -117,7 +129,7 @@ class Iroh implements CommonTypes.IApiHandler {
     if (active !== undefined && active !== null) data.active = active
     if (scopes) data.scopes = scopes
 
-    if (Object.keys(data).length < 1) return Promise.reject(new Error('No details to update provided.'))
+    if (Object.keys(data).length < 1) { return Promise.reject(new Error('No details to update provided.')) }
 
     try {
       const res = await this.req.put(`/users/${userId}`, data)
@@ -136,7 +148,7 @@ interface IrohAccount {
   id: string
   name: string
   discordUserId: string
-  active: boolean,
+  active: boolean
   _id: string
   __v: number
 }

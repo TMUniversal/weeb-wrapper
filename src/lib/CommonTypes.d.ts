@@ -10,8 +10,8 @@ export type APIUrl = string
 export type APIKey = BearerToken | WolkeToken | null
 
 export type APIResponse = {
-  status: HttpStatusCode,
-  message?: string,
+  status: HttpStatusCode
+  message?: string
   [x: string]: any
 }
 

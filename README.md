@@ -86,10 +86,9 @@ const result = await wrapper.settings.getSetting('guilds', '<some id>')
 console.log(result) // Will return the settings: { prefix: '?' }
 
 // With promises
-wrapper.settings.getSetting('guilds', '<some id>')
-  .then(result => {
-    console.log(result) // Will return the settings: { prefix: '?' }
-  })
+wrapper.settings.getSetting('guilds', '<some id>').then(result => {
+  console.log(result) // Will return the settings: { prefix: '?' }
+})
 ```
 
 Note: Subsettings are not connected to their parent settings, they perform as a full settings themselves and will work even if the parent route doesn't exist. Deleting a parent will not delete it's subsettings.
@@ -109,7 +108,6 @@ wrapper.statistics.updateBot('<id here>', {
   channels: 456,
   users: 789
 }) // or as an object
-
 
 // retrieving this data:
 const bot = await wrapper.statistics.getBot('<id here>')
@@ -138,7 +136,9 @@ console.log(bot)
 ```js
 const WeebWrapper = require('@tmuniversal/weeb-wrapper')
 
-const wrapper = new WeebWrapper('<Your API key (or not since you don\'t need one for this)>')
+const wrapper = new WeebWrapper(
+  "<Your API key (or not since you don't need one for this)>"
+)
 
 const neko = await wrapper.general.getNeko() // Will retrieve a catgirl image url.
 
@@ -147,12 +147,12 @@ console.log(neko)
 ```
 
 ### Upcoming
-* Implementation of the [Bruh API](https://bruhapi.xyz/) _(Maybe)_.
+
+- Implementation of the [Bruh API](https://bruhapi.xyz/) _(Maybe)_.
 
 ## License
 
 Please refer to the [LICENSE](LICENSE.md) file.
 
-
-[Weeb Wrapper]: https://github.com/TMUniversal/weeb-wrapper
+[weeb wrapper]: https://github.com/TMUniversal/weeb-wrapper
 [weeb-services]: https://github.com/weeb-services

@@ -15,7 +15,10 @@ class Tama implements CommonTypes.IApiHandler {
    * @param {String} id Their specific id
    * @returns {Promise<Object>} the setting.
    */
-  public async getSetting (type: string, id: string): Promise<SettingData | CommonTypes.APIResponse> {
+  public async getSetting (
+    type: string,
+    id: string
+  ): Promise<SettingData | CommonTypes.APIResponse> {
     try {
       const res = await this.req.get(`/${type}/${id}`)
       if (!res) return Promise.reject(new Error('Request failed.'))
@@ -41,8 +44,16 @@ class Tama implements CommonTypes.IApiHandler {
    * @param {Object} data The data that is to be saved.
    * @returns {Promise<Object>} the setting.
    */
-  public async updateSetting (type: string, id: string, data: Object): Promise<SettingData | CommonTypes.APIResponse> {
-    if (typeof data !== 'object') return Promise.reject(new Error('Data provided in incorrect format. Provide an Object.'))
+  public async updateSetting (
+    type: string,
+    id: string,
+    data: Object
+  ): Promise<SettingData | CommonTypes.APIResponse> {
+    if (typeof data !== 'object') {
+      return Promise.reject(
+        new Error('Data provided in incorrect format. Provide an Object.')
+      )
+    }
     try {
       const res = await this.req.post(`/${type}/${id}`, data)
       if (!res) return Promise.reject(new Error('Request failed.'))
@@ -58,7 +69,10 @@ class Tama implements CommonTypes.IApiHandler {
    * @param {String} id Their specific id
    * @returns {Promise<Object>} The setting
    */
-  public async deleteSetting (type: string, id: string): Promise<SettingData | CommonTypes.APIResponse> {
+  public async deleteSetting (
+    type: string,
+    id: string
+  ): Promise<SettingData | CommonTypes.APIResponse> {
     try {
       const res = await this.req.delete(`/${type}/${id}`)
       if (!res) return Promise.reject(new Error('Request failed.'))
@@ -75,7 +89,11 @@ class Tama implements CommonTypes.IApiHandler {
    * @param {String} subtype The name of the subtype
    * @returns {Promise<Object>} Array of all existing settings.
    */
-  public async getSubsettings (type: string, id: string, subtype: string): Promise<SubSettingsData | CommonTypes.APIResponse> {
+  public async getSubsettings (
+    type: string,
+    id: string,
+    subtype: string
+  ): Promise<SubSettingsData | CommonTypes.APIResponse> {
     try {
       const res = await this.req.get(`/${type}/${id}/${subtype}`)
       if (!res) return Promise.reject(new Error('Request failed.'))
@@ -98,8 +116,13 @@ class Tama implements CommonTypes.IApiHandler {
    * @param {String} subid The subid of the setting
    * @returns {Promise<Object>} the setting.
    */
-  public async getSubsetting (type: string, id: string, subtype: string, subid: string): Promise<SubSettingData | CommonTypes.APIResponse> {
-    if (subid === undefined || subid == null) return Promise.reject(new Error('No subId provided.'))
+  public async getSubsetting (
+    type: string,
+    id: string,
+    subtype: string,
+    subid: string
+  ): Promise<SubSettingData | CommonTypes.APIResponse> {
+    if (subid === undefined || subid == null) { return Promise.reject(new Error('No subId provided.')) }
     try {
       const res = await this.req.get(`/${type}/${id}/${subtype}/${subid}`)
       if (!res) return Promise.reject(new Error('Request failed.'))
@@ -129,9 +152,18 @@ class Tama implements CommonTypes.IApiHandler {
    * @param {Object} data The data that is to be saved.
    * @returns {Promise<Object>} the setting.
    */
-  public async updateSubsetting (type: string, id: string, subtype: string, subid: string, data: object): Promise<SubSettingData | CommonTypes.APIResponse> {
+  public async updateSubsetting (
+    type: string,
+    id: string,
+    subtype: string,
+    subid: string,
+    data: object
+  ): Promise<SubSettingData | CommonTypes.APIResponse> {
     try {
-      const res = await this.req.post(`/${type}/${id}/${subtype}/${subid}`, data)
+      const res = await this.req.post(
+        `/${type}/${id}/${subtype}/${subid}`,
+        data
+      )
       if (!res) return Promise.reject(new Error('Request failed.'))
       return Promise.resolve(res.data.subsetting.data)
     } catch (err) {
@@ -147,7 +179,12 @@ class Tama implements CommonTypes.IApiHandler {
    * @param {String} subid The subid of the setting
    * @returns {Promise<Object>} The setting
    */
-  public async deleteSubsetting (type: string, id: string, subtype: string, subid: string): Promise<SubSettingData | CommonTypes.APIResponse> {
+  public async deleteSubsetting (
+    type: string,
+    id: string,
+    subtype: string,
+    subid: string
+  ): Promise<SubSettingData | CommonTypes.APIResponse> {
     try {
       const res = await this.req.delete(`/${type}/${id}/${subtype}/${subid}`)
       if (!res) return Promise.reject(new Error('Request failed.'))
@@ -176,7 +213,7 @@ interface SettingData extends Object {
   [key: string]: string | number | Array<any> | Object | undefined
 }
 
-interface SubSettingData extends SettingData { }
+interface SubSettingData extends SettingData {}
 
 interface SubSettingsData {
   [subId: string]: SubSettingData

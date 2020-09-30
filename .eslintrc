@@ -1,0 +1,6 @@
+{
+  "extends": "@tmware",
+  "rules": {
+    "no-use-before-define": "warn"
+  }
+}
