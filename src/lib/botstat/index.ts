@@ -82,7 +82,9 @@ class BotStat implements IApiHandler {
         }
         data = { guilds: p1, channels: p2, users: p3 }
       } else if (Array.isArray(p1)) {
-        if (p1.length !== 3) { throw new Error('Incorrect amount of array elements.') }
+        if (p1.length !== 3) {
+          throw new Error('Incorrect amount of array elements.')
+        }
         data = { guilds: p1[0], channels: p1[1], users: p1[2] }
       } else if (
         p1.guilds &&
