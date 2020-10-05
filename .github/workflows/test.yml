@@ -17,8 +17,8 @@ jobs:
         uses: actions/setup-node@v1.4.2
         with:
           node-version: 14
-      - run: npm install
-      - run: npm run lint
+      - run: yarn install
+      - run: yarn run lint
 
   build:
     name: Build
@@ -34,10 +34,10 @@ jobs:
           node-version: 14
 
       - name: Install Dependencies
-        run: npm install
+        run: yarn install
 
       - name: Build
-        run: npm run build
+        run: yarn run build
 
       - name: Test the build
-        run: npm test
+        run: yarn test
