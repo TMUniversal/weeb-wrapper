@@ -1,4 +1,4 @@
-// Type definitions for @tmuniversal/weeb-wrapper 0.2.0
+// Type definitions for @tmuniversal/weeb-wrapper 0.3.2
 // Project: https://github.com/TMUniversal/weeb-wrapper
 
 declare module '@tmuniversal/weeb-wrapper' {
@@ -8,11 +8,29 @@ declare module '@tmuniversal/weeb-wrapper' {
    * A simple API wrapper for the weeb api
    */
   class WeebWrapper {
-    public readonly accounts: Iroh
-    public readonly images: Toph
-    public readonly settings: Tama
-    public readonly statistics: BotStat
-    public readonly general: TMGeneral
+    /**
+     * Handler for the account API (requires key)
+     */
+    public accounts: Iroh
+    /**
+     * Handler for the image API (unimplemented)
+     */
+    public images: Toph
+    /**
+     * Handler for the settings API
+     */
+    public settings: Tama
+    /**
+     * Handler for the statistics API
+     */
+    public statistics: BotStat
+    /**
+     * Handler for the tm general API
+     */
+    public general: TMGeneral
+    /**
+     * Object that includes api names and urls
+     */
     public static APIS: IAPIS
 
     /**
@@ -22,6 +40,9 @@ declare module '@tmuniversal/weeb-wrapper' {
     constructor(token: APIKey, apiUrl?: APIUrl | APIUrlOptions)
   }
 
+  /**
+   * HTTP Request Handler
+   */
   class RequestHandler {
     constructor(baseUrl: APIUrl, token: APIKey)
     public baseUrl: APIUrl
@@ -35,6 +56,9 @@ declare module '@tmuniversal/weeb-wrapper' {
     public isJWT(token: APIKey): Boolean
   }
 
+  /**
+   * Account API handler
+   */
   class Iroh implements IApiHandler {
     req: RequestHandler
     constructor(baseUrl: APIUrl, token: APIKey)
@@ -98,6 +122,9 @@ declare module '@tmuniversal/weeb-wrapper' {
     ): Promise<IrohResponse>
   }
 
+  /**
+   * Settings API handler
+   */
   class Tama implements IApiHandler {
     req: RequestHandler
     constructor(baseUrl: APIUrl, token: APIKey)
@@ -213,11 +240,17 @@ declare module '@tmuniversal/weeb-wrapper' {
     ): Promise<SubSettingData | APIResponse>
   }
 
+  /**
+   * Image API handler
+   */
   class Toph implements IApiHandler {
     req: RequestHandler
     constructor(baseUrl: APIUrl, token: APIKey)
   }
 
+  /**
+   * Statistics API handler
+   */
   class BotStat implements IApiHandler {
     req: RequestHandler
     constructor(baseUrl: APIUrl, token: APIKey)
@@ -307,6 +340,9 @@ declare module '@tmuniversal/weeb-wrapper' {
     public updateCommand(botId: string, command: string): Promise<Command>
   }
 
+  /**
+   * TM General API handler
+   */
   class TMGeneral implements IApiHandler {
     req: RequestHandler
     constructor(baseUrl: APIUrl)
