@@ -78,7 +78,9 @@ class BotStat implements IApiHandler {
       // Validate and transform input data.
       if (!p1) throw new Error('Too few arguments passed, requires at least 2.')
       if (typeof p1 === 'number') {
-        if (typeof p2 !== 'number' || typeof p3 !== 'number') { throw new Error('Missing correct parameters.') }
+        if (typeof p2 !== 'number' || typeof p3 !== 'number') {
+          throw new Error('Missing correct parameters.')
+        }
         data = { guilds: p1, channels: p2, users: p3 }
       } else if (_.isArray(p1)) {
         if (_.size(p1) !== 3) throw new Error('Incorrect amount of elements.')

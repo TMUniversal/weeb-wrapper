@@ -122,7 +122,9 @@ class Tama implements CommonTypes.IApiHandler {
     subtype: string,
     subid: string
   ): Promise<SubSettingData | CommonTypes.APIResponse> {
-    if (subid === undefined || subid == null) { return Promise.reject(new Error('No subId provided.')) }
+    if (subid === undefined || subid == null) {
+      return Promise.reject(new Error('No subId provided.'))
+    }
     try {
       const res = await this.req.get(`/${type}/${id}/${subtype}/${subid}`)
       if (!res) return Promise.reject(new Error('Request failed.'))

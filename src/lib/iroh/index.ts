@@ -129,7 +129,9 @@ class Iroh implements CommonTypes.IApiHandler {
     if (active !== undefined && active !== null) data.active = active
     if (scopes) data.scopes = scopes
 
-    if (Object.keys(data).length < 1) { return Promise.reject(new Error('No details to update provided.')) }
+    if (Object.keys(data).length < 1) {
+      return Promise.reject(new Error('No details to update provided.'))
+    }
 
     try {
       const res = await this.req.put(`/users/${userId}`, data)
