@@ -1,7 +1,10 @@
 {
   "extends": "@tmuniversal/ts/config",
   "compilerOptions": {
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "sourceMap": false,
+    "inlineSources": false,
+    "inlineSourceMap": false
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
