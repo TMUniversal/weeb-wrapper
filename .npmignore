@@ -18,6 +18,9 @@ yarn-error.log*
 
 # npm specific
 .github
-CHANGELOG.md
 src/
 tsconfig.json
+yarn.lock
+.eslintrc
+.gitignore
+.prettierignore

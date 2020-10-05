@@ -9,6 +9,9 @@
     "test": "yarn run lint && node test/test.js",
     "lint": "eslint --ext .js,.ts --ignore-path .gitignore src/",
     "lint:fix": "eslint --ext .js,.ts --ignore-path .gitignore src/ --fix",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write .",
+    "prettiest": "yarn run prettier:fix; yarn run lint:fix",
     "clean": "rimraf dist",
     "prepublishOnly": "yarn run build && yarn test",
     "postversion": "git push && git push --tags"
