@@ -58,7 +58,7 @@ Additions:
 Changes:
 
 - Update README.
-- Change list-style in CHANGELOG.md (from "-" to "\*")
+- Change list-style in CHANGELOG.md (from `-` to `*`)
 
 ### 0.2.1
 
