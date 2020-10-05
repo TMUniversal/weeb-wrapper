@@ -1,4 +1,4 @@
-// Type definitions for @tmuniversal/weeb-wrapper 0.3.2
+// Type definitions for @tmuniversal/weeb-wrapper 0.3.4
 // Project: https://github.com/TMUniversal/weeb-wrapper
 
 declare module '@tmuniversal/weeb-wrapper' {
