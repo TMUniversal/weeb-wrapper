@@ -1,3 +1,10 @@
+## Version 0.3.4
+
+### Changes
+
+- Remove lodash from dependencies
+- Extended error handling
+
 ## Version 0.3.3
 
 ### Fixes
