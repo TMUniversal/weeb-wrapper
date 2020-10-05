@@ -1,7 +1,6 @@
 /* eslint-disable no-dupe-class-members */
 'use strict'
 
-import _ from 'lodash'
 import RequestHandler from '../RequestHandler'
 import { IApiHandler, APIUrl, APIKey } from '../CommonTypes'
 
@@ -82,8 +81,8 @@ class BotStat implements IApiHandler {
           throw new Error('Missing correct parameters.')
         }
         data = { guilds: p1, channels: p2, users: p3 }
-      } else if (_.isArray(p1)) {
-        if (_.size(p1) !== 3) throw new Error('Incorrect amount of elements.')
+      } else if (Array.isArray(p1)) {
+        if (p1.length !== 3) throw new Error('Incorrect amount of array elements.')
         data = { guilds: p1[0], channels: p1[1], users: p1[2] }
       } else if (
         p1.guilds &&
@@ -100,7 +99,7 @@ class BotStat implements IApiHandler {
       const res = await this.req.post(`/bot/${botId}`, data)
       return res.data.bot
     } catch (err) {
-      return Promise.reject(err.response.data || new Error())
+      return Promise.reject(err.response?.data || err || new Error())
     }
   }
 
@@ -147,7 +146,7 @@ class BotStat implements IApiHandler {
       const res = await this.req.post(`/cmd/${botId}/${command}`, {})
       return res.data.command
     } catch (err) {
-      return Promise.reject(err.response.data || new Error())
+      return Promise.reject(err.response?.data || err || new Error())
     }
   }
 
