@@ -6,6 +6,7 @@ Changes:
 
 - Add `test/` to .npmignore
 - Format CHANGELOG.md to be more easily readable
+- Make test workflow use yarn instead of npm
 
 ### 0.3.4
 
