@@ -88,7 +88,7 @@ Additions:
 
 - Created this CHANGELOG.
 
-## Fixes
+Fixes:
 
 - Fixed settings api error handling for failing requests.
 - Fixed settings api typings that I broke earlier.
