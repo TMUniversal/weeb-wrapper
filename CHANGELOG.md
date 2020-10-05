@@ -1,12 +1,24 @@
 ## Version 0.3.2
 
+### Additions
+
+- Add prettier to project
+- Use new @tmware configs for prettier and eslint
+- Add prettier ignore file
+
 ### Changes
 
+- Apply prettier to code style
 - Marked API url parameter as optional.
+- Revert changelog list style change (see 0.3.0)
+- Use yarn instead of npm
 
 ### Fixes
 
+- Fix typings for intellisense
 - Documentation
+- Move @types/lodash to devDependencies
+- Fix broken ko-fi link in changelog
 
 ## Version 0.3.1
 
