@@ -59,7 +59,7 @@ class Tama implements CommonTypes.IApiHandler {
       if (!res) return Promise.reject(new Error('Request failed.'))
       return Promise.resolve(res.data.setting.data)
     } catch (err) {
-      return Promise.reject(err.response.data || new Error())
+      return Promise.reject(err.response?.data || err || new Error())
     }
   }
 
@@ -78,7 +78,7 @@ class Tama implements CommonTypes.IApiHandler {
       if (!res) return Promise.reject(new Error('Request failed.'))
       return Promise.resolve(res.data.setting.data)
     } catch (err) {
-      return Promise.reject(err.response.data || new Error())
+      return Promise.reject(err.response?.data || err || new Error())
     }
   }
 
@@ -169,7 +169,7 @@ class Tama implements CommonTypes.IApiHandler {
       if (!res) return Promise.reject(new Error('Request failed.'))
       return Promise.resolve(res.data.subsetting.data)
     } catch (err) {
-      return Promise.reject(err.response.data || new Error())
+      return Promise.reject(err.response?.data || err || new Error())
     }
   }
 
@@ -192,7 +192,7 @@ class Tama implements CommonTypes.IApiHandler {
       if (!res) return Promise.reject(new Error('Request failed.'))
       return Promise.resolve(res.data.subsetting.data)
     } catch (err) {
-      return Promise.reject(err.response.data || new Error())
+      return Promise.reject(err.response?.data || err || new Error())
     }
   }
 }

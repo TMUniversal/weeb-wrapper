@@ -34,7 +34,7 @@ class Iroh implements CommonTypes.IApiHandler {
       })
       return res.data
     } catch (err) {
-      return err.response.data
+      return Promise.reject(err.response?.data || err || new Error())
     }
   }
 
@@ -48,7 +48,7 @@ class Iroh implements CommonTypes.IApiHandler {
       const res = await this.req.delete(`/tokens/${tokenId}`)
       return res.data
     } catch (err) {
-      return err.response.data
+      return Promise.reject(err.response?.data || err || new Error())
     }
   }
 
@@ -94,7 +94,7 @@ class Iroh implements CommonTypes.IApiHandler {
       })
       return res.data
     } catch (err) {
-      return err.response.data
+      return Promise.reject(err.response?.data || err || new Error())
     }
   }
 
@@ -108,7 +108,7 @@ class Iroh implements CommonTypes.IApiHandler {
       const res = await this.req.delete(`/users/${userId}`)
       return res.data
     } catch (err) {
-      return err.response.data
+      return Promise.reject(err.response?.data || err || new Error())
     }
   }
 
@@ -137,7 +137,7 @@ class Iroh implements CommonTypes.IApiHandler {
       const res = await this.req.put(`/users/${userId}`, data)
       return res.data
     } catch (err) {
-      return err.response.data
+      return Promise.reject(err.response?.data || err || new Error())
     }
   }
 }
