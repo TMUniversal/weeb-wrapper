@@ -15,7 +15,6 @@
 
 ### Fixes
 
-- Fix typings for intellisense
 - Documentation
 - Move @types/lodash to devDependencies
 - Fix broken ko-fi link in changelog

@@ -11,23 +11,23 @@ declare module '@tmuniversal/weeb-wrapper' {
     /**
      * Handler for the account API (requires key)
      */
-    public accounts: Iroh
+    public readonly accounts: Iroh
     /**
      * Handler for the image API (unimplemented)
      */
-    public images: Toph
+    public readonly images: Toph
     /**
      * Handler for the settings API
      */
-    public settings: Tama
+    public readonly settings: Tama
     /**
      * Handler for the statistics API
      */
-    public statistics: BotStat
+    public readonly statistics: BotStat
     /**
      * Handler for the tm general API
      */
-    public general: TMGeneral
+    public readonly general: TMGeneral
     /**
      * Object that includes api names and urls
      */
