@@ -1,3 +1,9 @@
+## Version 0.3.3
+
+### Fixes
+
+- Remove inline source map
+
 ## Version 0.3.2
 
 ### Additions
