@@ -61,9 +61,9 @@
     fastq "^1.6.0"
 
 "@tmuniversal/ts@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@tmuniversal/ts/-/ts-1.1.0.tgz#47553a6c1efd5c9241ffc41adbd88c82edacf084"
-  integrity sha512-CQUgEcxg35VnH6AGX5lLyH5+OLK1cexmmYf/CbgTlEkYvrb4QnV4dNgWQiJyqPMjAN8fvpNEMryDEuI0647t8Q==
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@tmuniversal/ts/-/ts-1.2.1.tgz#5c333f2f276586c12df86d428123dd1ec0859dd7"
+  integrity sha512-6+LoswEsTfFpXCEy/iNLaiadDPbANVGiT/vVpPOEbah7o/rQYKeBIzmzkNRGiLwPfBevRKri0B0LvOkEJEhYnQ==
 
 "@tmware/eslint-config@^1.0.0":
   version "1.0.0"
